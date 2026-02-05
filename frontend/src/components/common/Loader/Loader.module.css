@@ -1,0 +1,40 @@
+/* src/commponents/common/Loader/Loader.module.css */
+
+.loader {
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    border-top-color: #3498db;
+    animation: spin 1s ease-in-out infinite;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+}
+.loader:after {
+    content: " ";
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 1px;
+    border-radius: 50%;
+    border: 3px solid rgba(0, 0, 0, 0.1);
+    border-top-color: #3498db;
+    animation: spin 1s ease-in-out infinite;
+}
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+/* size */
+.small {
+    width: 15px;
+    height: 15px;
+}
+.medium {
+    width: 30px;
+    height: 30px;
+}
+.large {
+    width: 60px;
+    height: 60px;
+}
