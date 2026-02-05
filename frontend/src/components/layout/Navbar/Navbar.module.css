@@ -1,0 +1,111 @@
+/* src/components/layout/Navbar/Navbar.module.css */
+
+.navbar {
+    baground-color: var(--primary-color);
+    color: var(--text-color);
+    padding: 0 20px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+.brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;  
+}
+.toggleBtn {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+.toggleBtn div {
+    width: 25px;
+    height: 3px;
+    background-color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+/* Mobile menu toggle */
+@media (max-width: 768px) {
+    .toggleBtn {
+        display: flex;
+    }
+}
+
+/* Navigation links */
+.navLinks {
+    display: flex;
+    gap: 20px;
+}
+.navLink {
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+.navLink:hover {
+    color: var(--accent-color);
+}
+.navItems {
+    display: flex;
+    gap: 20px;
+}
+/* User menu */
+.userMenu {
+    position: relative;
+    cursor: pointer;
+}
+.userMenu span {
+    color: var(--text-color);
+    font-weight: 500;
+}
+.userDropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    overflow: hidden;
+    display: none;
+}
+.userDropdown a {
+    display: block;
+    padding: 10px 20px;
+    color: var(--text-color);
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+.userDropdown a:hover {
+    background-color: var(--accent-color);
+}
+.userMenu:hover .userDropdown {
+    display: block;
+}
+/* Responsive */
+@media (max-width: 768px) {
+    .navLinks {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--primary-color);
+        padding: 10px 0;
+    }
+    .navLinks.active {
+        display: flex;
+    }
+}
