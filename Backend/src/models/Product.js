@@ -1,36 +1,17 @@
 //src/models/Product.js 
 
-/* 
-// Products Collection
-{
-    "_id": ObjectId("..."),
-    "productName": "",
-    "categoryId": "",
-    "barcode": "",
-    "purchasePrice": 0.00,
-    "sellingPrice": 0.00,
-    "stockQuantity": 0,
-    "description": "",
-    "created_at": ISODate("")
-} */
-
 const mongoose = require('mongoose');
 
 const productSchema = new mongoose.Schema({
-    productName: {
-        type: String,
+    productName: { 
+        type: String, 
         required: true,
         trim: true
-    },
-    categoryId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Category',
-        required: true
     },
     barcode: {
         type: String,
         unique: true,
-        sparse: true
+        trim: true
     },
     purchasePrice: {
         type: Number,
@@ -47,7 +28,26 @@ const productSchema = new mongoose.Schema({
         required: true,
         min: 0
     },
-    description: String
+    description: {
+        type: String,
+        trim: true
+    },
+    image: {
+        type: String,
+    },
+    lowStockThreshold: {
+        type: Number,
+        default: 10,
+        min: 0
+    },
+    supplier: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Supplier'
+    },
+    category: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category'
+    },
 }, { timestamps: true });
 
 module.exports = mongoose.model('Product', productSchema);
